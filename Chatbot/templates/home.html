@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .message {
+            margin: 10px 0;
+        }
+        .user {
+            color: blue;
+            font-weight: bold;
+        }
+        .bot {
+            color: green;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat with GPT-4o-mini</h1>
+    <form method="post">
+        <input type="text" name="user_input" required placeholder="Ask a question..." />
+        <button type="submit">Send</button>
+    </form>
+
+    <div id="chat-box">
+        {% for msg in chat %}
+            <div class="message"><span class="user">You:</span> {{ msg.user }}</div>
+            <div class="message"><span class="bot">Bot:</span> {{ msg.bot }}</div>
+        {% endfor %}
+    </div>
+</body>
+</html>
